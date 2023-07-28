@@ -1,17 +1,34 @@
-import { UserCard } from "./sections/users/UserCard";
+import { Routes, Route } from "react-router-dom";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+import BlogsProvider from "./context/blogs/BlogsProvider";
+import { ScrollProvider } from "./context/scroll/ScrollContext";
+import Blog from "./pages/Blog";
+import Inicio from "./pages/Inicio";
+import NuevoBlog from "./pages/NuevoBlog";
 import { useUsers } from "./sections/users/useUsers";
+import Login from "./pages/Login";
 
 export function App() {
 	const users = useUsers();
 
 	return (
-		<div className="App">
-			<h3>⚡⚛️ Vite React Best Practices Template (by Codely)</h3>
-			<h2>Current users</h2>
-
-			{users.map((user) => (
-				<UserCard key={user.name} user={user} />
-			))}
-		</div>
+		<>
+			<Navbar />
+			<BlogsProvider>
+				<ScrollProvider>
+				<main className="container" id="main" style={{paddingTop: "56px"}}>
+					<Routes>
+					<Route path="/" element={ <Inicio /> } />
+					<Route path="/crear-articulo" element={ <NuevoBlog /> } />
+					<Route path="/blogs/:id" element={ <Blog /> } />
+					<Route path="/login" element={ <Login /> } />
+					</Routes>
+				</main> 
+				</ScrollProvider>
+			</BlogsProvider>
+				
+			<Footer />
+		</>
 	);
 }

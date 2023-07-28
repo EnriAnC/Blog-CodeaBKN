@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "typeRoots": ["./node_modules/@types", "./src",],
     "lib": [
       "dom",
       "dom.iterable",
@@ -26,6 +27,5 @@
     "tests",
     "jest.config.js",
     "cypress.config.ts",
-    "vite.config.ts"
-  ]
+    "vite.config.ts"]
 }
