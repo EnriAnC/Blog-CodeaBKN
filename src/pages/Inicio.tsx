@@ -22,7 +22,7 @@ import { useScrollContext } from '../context/scroll/ScrollContext'
     return (
       <div className='py-2' id='articles-container'>
           <h1>Descubre lo más visto!</h1>
-          <Carousel/>
+          {/* <Carousel/> */}
           <h2>Articulos recientes</h2>
           <div className="grid-width-responsive-260px400px">
               {blogList.map(blog=>(

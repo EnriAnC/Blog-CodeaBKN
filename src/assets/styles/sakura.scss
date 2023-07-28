@@ -19,7 +19,6 @@ main{
 }
 
 .logo_blog{
-  font-size: 1.5rem;
   font-weight: bold;
   text-transform: uppercase;
   color: #333;
@@ -72,7 +71,8 @@ main{
   display: grid !important; 
   gap: 0.5rem;
   grid-auto-rows: auto;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(50%, 350px), 1fr));
+  grid-auto-flow: dense;
 }
 
 .hidden{
@@ -80,9 +80,9 @@ main{
 }
 
 .img-articulo-size{
-  height: 150px;
-  min-width: 240px;
-  object-fit: cover !important;
+  // height: 150px;
+  max-width: 60px;
+  object-fit: contain !important;
 
 }
 
@@ -127,6 +127,7 @@ main{
 
   ::view-transition-old(root),
 ::view-transition-new(root) {
+  // display: none;
   /* animation: none;  */
   mix-blend-mode: normal;
   height: 100%;

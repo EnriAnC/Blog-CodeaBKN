@@ -18,8 +18,12 @@ const Blog = () => {
   }
 
   // Extrae los detalles del artículo
-  const { title, description, body, img, author, date, tags, likes, comments } = blog;
-  
+  let { title, description, body, img, author, date, tags, likes, comments } = blog;
+
+  if (tags[0] === 'JavaScript'){
+    img = 'javascript-logo.svg'
+  }
+  console.log(tags)
   const tagsString = tags.length>0 
     ? tags.map(tag => `#${tag}`).join(', ') 
     : '---'
@@ -35,13 +39,10 @@ const Blog = () => {
       <div className='row gx-0 gap-4 py-3'>
         <img
           className='img-articulo-size col-12 col-md-6'
-          src={img.includes("data:image") ? img : `../${img}`} 
+          src={`../${img}`} 
           alt="imagen_articulo" 
-          style={{viewTransitionName: `blog-${id}`, minHeight:"220px"}}/>
-        <p className='col fs-3'
-          style={{
-            viewTransitionName: `body-${id}`,
-        }}>{description}</p>
+          style={{viewTransitionName: `blog-${id}`, width:"220px"}}/>
+        <p className='col fs-3'>{description}</p>
         <p className='fs-4'>{body}</p>
       
         <div className="d-flex justify-content-between">
