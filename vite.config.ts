@@ -11,9 +11,9 @@ export default defineConfig((configEnv) => {
 			VitePWA({
 				manifest: {
 					"icons":[{
-						src:"bg-x.png",
-						type:"image.png",
-						purpose:"imagen no encontrada"
+						src:"java-4-logo.svg",
+						type:"image/svg",
+						purpose:"JavaScript logo"
 					}]
 				},
 				workbox: {
