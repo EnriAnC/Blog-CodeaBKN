@@ -22,7 +22,7 @@ const BlogsProvider = ({ children }:Props) => {
       
       async function fetchData(){
         try {
-          const response = await fetch('http://localhost:8080/blogs');
+          const response = await fetch('https://springboot-reactive-api-production.up.railway.app/blogs');
           if (!response.ok) {
             throw new Error('Failed to fetch data');
           }
