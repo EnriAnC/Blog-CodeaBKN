@@ -11,7 +11,7 @@ export default defineConfig((configEnv) => {
 			VitePWA({
 				manifest: {
 					"icons":[{
-						src:"java-4-logo.svg",
+						src:"javascript-logo.svg",
 						type:"image/svg",
 						purpose:"JavaScript logo"
 					}]
