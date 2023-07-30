@@ -5,6 +5,7 @@ import { BlogState } from '../../models/Blog';
 interface BlogsContextProps{
   blogState: BlogState
   dispatch: React.Dispatch<BlogAction>
+  isLoading: boolean
 }
 
 const BlogsContext = createContext<BlogsContextProps>({} as BlogsContextProps);

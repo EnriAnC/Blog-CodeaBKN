@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import blogsReducer from './blogsReducer';
 import { BlogsContext } from './blogsContext.js';
 import { Blog, BlogState } from '../../models/Blog';
@@ -7,14 +7,12 @@ interface Props{
   children: React.ReactElement
 }
 
-const INITIAL_STATE: BlogState = { blogs: {} };
+const INITIAL_STATE: BlogState = { blogs: {}, loading: true };
 
 
 const BlogsProvider = ({ children }:Props) => {
-    const [blogsState, dispatch] = useReducer(blogsReducer, INITIAL_STATE, () => {
-      const blogsLS = JSON.parse(localStorage.getItem('blogs') ?? '{}');
-      return { blogs: blogsLS } ;
-    });
+    const [blogsState, dispatch] = useReducer(blogsReducer, INITIAL_STATE);
+    const [loading, setLoading] = useState(true)
   
     useEffect(() => {
 
@@ -27,9 +25,10 @@ const BlogsProvider = ({ children }:Props) => {
             throw new Error('Failed to fetch data');
           }
           const data: Blog[] = await response.json();
-          console.log(data)
           dispatch({type:'load', payload:data});
+          setLoading(false)
         } catch (error) { 
+          setLoading(true)
           console.error('Error fetching data:', error); 
         }
       }
@@ -39,7 +38,7 @@ const BlogsProvider = ({ children }:Props) => {
     }, []);
   
     return (
-      <BlogsContext.Provider value={{ blogState: blogsState, dispatch }}>
+      <BlogsContext.Provider value={{ blogState: blogsState, dispatch, isLoading: loading }}>
         {children}
       </BlogsContext.Provider>
     );

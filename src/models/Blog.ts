@@ -19,4 +19,5 @@ export interface IndexBlogs {
 
 export interface BlogState {
     blogs: IndexBlogs
+    loading: boolean
 }
