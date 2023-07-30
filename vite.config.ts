@@ -19,7 +19,6 @@ export default defineConfig((configEnv) => {
 				workbox: {
 					runtimeCaching: [{
 						urlPattern:({url})=>{
-							console.log(url)
 							return url.pathname.startsWith('/blogs')
 						},
 						handler: "CacheFirst" as const,
