@@ -7,7 +7,7 @@ interface ScrollContext{
   setScrollY: (scrollY: number)=>void;
 }
 
-const ScrollContext = createContext<ScrollContext>({ scrollY: 0, setScrollY: () => {} }); // Proporciona un valor inicial de contexto
+const ScrollContext = createContext<ScrollContext>({ scrollY: 0, setScrollY: () => {} });
 
 
 export const useScrollContext = () => useContext(ScrollContext);

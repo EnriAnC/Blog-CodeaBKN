@@ -35,25 +35,31 @@ const Blog = () => {
   return (
     
     <>
-      <h5 className='mt-3 mx-3 fs-2' style={{viewTransitionName:`title-${id}`, textAlign:"center"}}>{title}</h5>
-      <div className='row gx-0 gap-4 py-3'>
-        <img
-          className='img-articulo-size col-12 col-md-6'
-          src={`../${img}`} 
-          alt="imagen_articulo" 
-          style={{viewTransitionName: `blog-${id}`, width:"220px"}}/>
-        <p className='col fs-3'>{description}</p>
-        <p className='fs-4'>{body}</p>
       
-        <div className="d-flex justify-content-between">
-          <p>Autor: {author}</p> 
-          <p>{date}</p>
+      <div className='container py-3'>
+        <div className="row gap-4 justify-content-center" style={{viewTransitionName: `card-${id}`}}>
+          <h5 className='mt-3 mx-3 fs-2' style={{viewTransitionName:`title-${id}`, textAlign:"center"}}>{title}</h5>
+
+          <div className='col-12 col-sm-6 col-md-2 d-flex justify-content-center'>
+            <img
+              className='img-articulo-size'
+              src={`../${img}`} 
+              alt="imagen_articulo" 
+              style={{viewTransitionName: `blog-${id}`}}/>
+          </div>
+          <p className='col fs-3'>{description}</p>
+          <p className='fs-4'>{body}</p>
+        
+          <div className="d-flex justify-content-between">
+            <p>Autor: {author}</p> 
+            <p>{date}</p>
+          </div>
+          <div className="d-flex justify-content-between">
+            <p className='border rounded-5 py-1 ps-3 pe-2 '>{likes} <span role="icon" aria-label="Me gusta">👍</span></p>
+            <p className='border rounded-5 py-1 ps-3 pe-2 '><i>Tags: {tagsString}</i></p>
+          </div>
+          {/* <p>{comments}</p>0 */}
         </div>
-        <div className="d-flex justify-content-between">
-          <p className='border rounded-5 py-1 ps-3 pe-2 '>{likes} <span role="icon" aria-label="Me gusta">👍</span></p>
-          <p className='border rounded-5 py-1 ps-3 pe-2 '><i>Tags: {tagsString}</i></p>
-        </div>
-        {/* <p>{comments}</p>0 */}
         
       </div>
     </>

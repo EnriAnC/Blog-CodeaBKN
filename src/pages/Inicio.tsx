@@ -3,6 +3,7 @@
   import { useBlogsContext } from '../context/blogs/blogsContext.js'
   import Carousel from '../components/Carousel'
 import { useScrollContext } from '../context/scroll/ScrollContext'
+import Hero from '../components/Hero'
 
   const Inicio = () => {
 
@@ -20,17 +21,20 @@ import { useScrollContext } from '../context/scroll/ScrollContext'
 
 
     return (
-      <div className='py-2' id='articles-container'>
-          <h1>Descubre lo más visto!</h1>
+      <>
+        <Hero />
+        <div className='container pt-4 position-relative mb-5' id='articles-container'>
           {/* <Carousel/> */}
-          <h2>Articulos recientes</h2>
+          <h2 style={{viewTransitionName:"h2-inicio"}}>Articulos recientes</h2>
           <div className="grid-width-responsive-260px400px">
               {blogList.map(blog=>(
                   <BlogCard key={blog.id} blog={blog}/>
               ))}
           </div>
 
-      </div>
+        </div>
+      </>
+      
     )
   }
 

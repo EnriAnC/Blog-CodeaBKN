@@ -8,27 +8,32 @@ import Inicio from "./pages/Inicio";
 import NuevoBlog from "./pages/NuevoBlog";
 import { useUsers } from "./sections/users/useUsers";
 import Login from "./pages/Login";
+import { AuthProvider } from "./context/auth/AuthContext";
 
 export function App() {
 	const users = useUsers();
 
 	return (
-		<>
+		<div className="bg3-circles">
 			<Navbar />
-			<BlogsProvider>
-				<ScrollProvider>
-				<main className="container" id="main" style={{paddingTop: "56px"}}>
-					<Routes>
-					<Route path="/" element={ <Inicio /> } />
-					<Route path="/crear-articulo" element={ <NuevoBlog /> } />
-					<Route path="/blogs/:id" element={ <Blog /> } />
-					<Route path="/login" element={ <Login /> } />
-					</Routes>
-				</main> 
-				</ScrollProvider>
-			</BlogsProvider>
+			<AuthProvider>
+				<BlogsProvider>
+					<ScrollProvider>
+						{/* <div className="bg-custom-blur fixed-top navbar" style={{viewTransitionName:"bg-color", zIndex:"-1"}} ></div> */}
+						<main className="min-vh-100 d-grid" 
+						id="main" style={{paddingTop: "56px", viewTransitionName:"main-container"}}>
+							<Routes>
+								<Route path="/" element={ <Inicio /> } />
+								<Route path="/crear-articulo" element={ <NuevoBlog /> } />
+								<Route path="/blogs/:id" element={ <Blog /> } />
+								<Route path="/login" element={ <Login /> } />
+							</Routes>
+						</main> 
+					</ScrollProvider>
+				</BlogsProvider>
+			</AuthProvider>	
 				
 			<Footer />
-		</>
+		</div>
 	);
 }

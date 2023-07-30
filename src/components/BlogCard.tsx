@@ -29,7 +29,7 @@ const BlogCard = ({blog}: Props) => {
             to={`blogs/${id}`}
             onClick={handleCardClick}>
             <div id={`blog_${id}`} className="card p-0" 
-            style={{cursor: "pointer", height:"auto", width:"100%"}}>
+            style={{cursor: "pointer", height:"auto", width:"100%", viewTransitionName: `card-${id}`}}>
                 <div className='d-flex flex-row'>
                     <img src={img} 
                         className="img-articulo-size card-img-top" alt={img} 

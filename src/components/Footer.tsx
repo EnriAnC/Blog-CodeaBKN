@@ -7,7 +7,7 @@ const Footer = () => {
   const {handleViewTransition} = useViewTransition()
 
   return (
-    <footer className="py-3 position-relative bottom-0 mt-5" style={{backgroundColor:"orange"}}>
+    <footer className="py-3 position-relative bottom-0" style={{backgroundColor:"orange"}}>
       <ul className="nav justify-content-center pb-3 mb-3">
         <li className="nav-item">
           <Link to="/" className="nav-link px-2 text-muted"
