@@ -51,9 +51,9 @@ const OffcanvasNavbar = () => {
                             >Crear articulo</Link>
                         </li>
                         <li className="nav-item" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
-                            <Link className="nav-link" to="calculadora-factorial"
-                            onClick={handleViewTransition('/calculadora-factorial')}
-                            >Calculadora Factorial</Link>
+                            <Link className="nav-link" to="/login"
+                            onClick={handleViewTransition('/login')}
+                            >Iniciar sesión</Link>
                         </li>
                     </ul>
                     {/* <form className="d-flex mt-3" role="search">

@@ -21,7 +21,7 @@ main{
 }
 
 .navbar-custom{
-  background: white;
+  background: transparent;
   background-size: contain;
   span, a{
     text-shadow: 0 0 20px white, 0 0 5px white;
@@ -155,15 +155,14 @@ main{
 
 
 
-::view-transition-old(offcanvasNavBody) {
-  /* display: none; */
-  animation: none;
-}
+// ::view-transition-old(nav) {
+//   background-color: white;
+// }
 
-::view-transition-new(offcanvasNavBody) {
-  /* display: none; */
-  animation: none;
-}
+// ::view-transition-new(nav) {
+//   background-color: white;
+// }
+
 
 
 

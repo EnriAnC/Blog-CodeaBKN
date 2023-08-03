@@ -29,7 +29,8 @@ import { Blog } from '../models/Blog'
     return (
       <>
         <Hero />
-        <div className='container pt-4 position-relative mb-5' id='articles-container'>
+        <div className='container pt-4 position-relative mb-5' id='articles-container'
+         style={{viewTransitionName:"cards-container"}}>
           {/* <Carousel/> */}
           <h2 style={{viewTransitionName:"h2-inicio"}}>Articulos recientes</h2>
           <div className="grid-width-responsive-260px400px">

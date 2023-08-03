@@ -7,40 +7,51 @@ const Navbar = () => {
 
     const {handleViewTransition} = useViewTransition()
 
-    const navRef = useRef({} as HTMLDivElement)
+    // const [isScrolling, setIsScrolling] = useState(false)
 
-    useEffect(()=>{
-        window.addEventListener('scroll', e=>{
-            if (1 - window.scrollY / 48 < -1) {
-                navRef.current.style.visibility = "hidden"
-                return
-            }
-            navRef.current.style.visibility = "visible"
-            navRef.current.style.opacity = `${1 - window.scrollY / 96}`
-        })
-    }, [])
+    // const navRef = useRef({} as HTMLDivElement)
+
+    // const btnRef = useRef({} as HTMLButtonElement)
+
+    // const collapseNavRef = useRef({} as HTMLDivElement)
+
+
+    // useEffect(()=>{
+    //     window.addEventListener('scroll', e=>{
+    //         if (window.scrollY > 48) {
+    //             setIsScrolling(true)
+    //             return
+    //         }
+    //         setIsScrolling(false)
+    //     })
+    // }, [])
+
+    // useEffect(()=>{
+        
+    // }, [isScrolling])
 
     return (
         <>
-            <div className="bg-white-blur fixed-top navbar" style={{zIndex:"-1"}} ></div>
-            <nav className="navbar navbar-expand-lg fixed-top z-3 navbar-custom shadow-sm"
+            {/* <div className="bg-white-blur fixed-top navbar" style={{zIndex:"-1"}} ></div> */}
+            {/* <nav className="navbar navbar-expand-lg fixed-top z-3 navbar-custom "
                 style={{viewTransitionName:"nav"}}
                 ref={navRef}
                 >   
                 <div className="container-fluid">
                     <Link className="navbar-brand logo_blog me-0" to="/"
-                    onClick={handleViewTransition('/')}>
+                    onClick={handleViewTransition('/')}
+                    style={{viewTransitionName:"nav-title"}}>
                         <span>Blog</span> 
                         <span className="blinking-text top-500"> | </span> 
-                        <span>Codea_BKN</span>
+                        {!isScrolling ? <span>Codea_BKN</span> : ''} 
                     </Link>
-                    <button className="navbar-toggler p-lg-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <button ref={btnRef} className={`navbar-toggler p-lg-0 ${isScrolling ? 'd-block' : ''}`} type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div className="collapse navbar-collapse ms-md-3 position-relative" id="navbarNav">
+                    <div className={`collapse navbar-collapse ms-md-3 position-relative ${isScrolling ? 'd-none' : ''}`} id="navbarNav" ref={collapseNavRef}>
                         <ul className="navbar-nav w-100 d-flex justify-content-start">
                             <li className="nav-item">
-                                <Link className="nav-link active" to="/" 
+                                <Link className="nav-link " to="/" 
                                 onClick={handleViewTransition('/')}
                                 >Inicio</Link>
                             </li>
@@ -57,8 +68,8 @@ const Navbar = () => {
                         </ul>
                     </div>
                 </div>
-            </nav>
-            <OffcanvasNavbar />
+            </nav> */}
+            <OffcanvasNavbar /> 
         
         </>
     )
