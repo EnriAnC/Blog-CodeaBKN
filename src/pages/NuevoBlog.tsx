@@ -3,9 +3,7 @@ import FormBlog from '../components/FormBlog'
 
 const NuevoBlog = () => {
 
-  useEffect(()=>{
-    window.scroll(0, 0)
-  }, [])
+  window.scroll(0, 0)
 
   return (
     <>

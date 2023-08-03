@@ -54,7 +54,8 @@ const FormBlog = () => {
       return (
         <>
           <FormModal showModal={showModal} setShowModal={setShowModal} formData={formData} />
-          <form onSubmit={handleSubmit} className='d-flex flex-column gap-3 z-1'>
+          <form onSubmit={handleSubmit} className='gap-3 z-1 container card'
+          style={{maxWidth: '600px', margin:'0 auto'}}>
             <legend className='text-center mt-4'>Crear nuevo articulo</legend>
 
             <div>

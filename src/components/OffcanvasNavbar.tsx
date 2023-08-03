@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import useViewTransition from '../hooks/useViewTransition'
 import { Link } from 'react-router-dom'
 
@@ -7,6 +7,23 @@ const OffcanvasNavbar = () => {
 
     const { handleViewTransition } = useViewTransition()
 
+    const [isScrolling, setIsScrolling] = useState(false)
+
+    const logoRef = useRef({} as HTMLSpanElement)
+
+     useEffect(()=>{
+        window.addEventListener('scroll', e=>{
+            if (window.scrollY > 48) {
+                logoRef.current.style.display = 'none'
+                setIsScrolling(true)
+                return
+            }
+            logoRef.current.style.display = 'inline-block'
+            let calc = 1  - window.screenY / 48
+            logoRef.current.style.opacity = `${calc}`
+            setIsScrolling(false)
+        })
+    }, [])
 
   return (
     <nav className="navbar fixed-top z-2"
@@ -16,8 +33,9 @@ const OffcanvasNavbar = () => {
             <Link className="navbar-brand logo_blog me-0" to="/"
             onClick={handleViewTransition('/')}
             style={{viewTransitionName:"offcanvasNavLogo", textShadow:"0 0 20px white, 0 0 5px white"}}>
-                <span>Blog</span> 
-                <span className="blinking-text top-500"> | </span> 
+                <span  style={{viewTransitionName:"offcanvasNavLogoBlog"}}>Blog</span> 
+                <span  style={{viewTransitionName:"offcanvasNavLogoBlogBlinking"}} className="blinking-text top-500"> | </span> 
+                <span ref={logoRef}>Codea_BKN</span>
             </Link>
             <button className="navbar-toggler shadow-sm" 
             type="button" data-bs-toggle="offcanvas"
@@ -29,7 +47,7 @@ const OffcanvasNavbar = () => {
             </button>
             <div className="offcanvas offcanvas-end" 
             tabIndex={-1} id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel"
-            style={{viewTransitionName:"offcanvasNavBody"}}>
+            style={{viewTransitionName:"offcanvasNavBody", transition:'none'}}>
                 <div className="offcanvas-header">
                     <h5 className="offcanvas-title fw-bolder text-uppercase" id="offcanvasNavbarLabel">
                         <span>Blog</span> 
